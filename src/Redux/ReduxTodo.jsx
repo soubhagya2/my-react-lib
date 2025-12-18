@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTask, deleteTask, editTask, toggleTask } from "./slice";
+import { addTask, deleteTask, editTask, toggleTask, filterTask } from "./slice";
 
 export default function TodoApp() {
   const dispatch = useDispatch();
@@ -21,6 +21,12 @@ export default function TodoApp() {
   useEffect(() => {
     console.log(tasks);
   }, [tasks]);
+
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "active") return !task.completed;
+    if (filter === "completed") return task.completed;
+    return true;
+  });
 
   return (
     <>
@@ -46,19 +52,40 @@ export default function TodoApp() {
           </form>
 
           <div className="flex gap-2 mb-4">
-            <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+            <button
+              onClick={() => dispatch(filterTask("all"))}
+              className={`px-4 py-2 rounded-lg transition ${
+                filter === "all"
+                  ? "bg-blue-500 text-white hover:bg-blue-600"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
+            >
               All
             </button>
-            <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">
+            <button
+              onClick={() => dispatch(filterTask("active"))}
+              className={`px-4 py-2 rounded-lg transition ${
+                filter === "active"
+                  ? "bg-blue-500 text-white hover:bg-blue-600"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
+            >
               Active
             </button>
-            <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">
+            <button
+              onClick={() => dispatch(filterTask("completed"))}
+              className={`px-4 py-2 rounded-lg transition ${
+                filter === "completed"
+                  ? "bg-blue-500 text-white hover:bg-blue-600"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
+            >
               Completed
             </button>
           </div>
 
           <div className="space-y-2">
-            {tasks.map((task) => (
+            {filteredTasks.map((task) => (
               <div
                 key={task.id}
                 className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition"
