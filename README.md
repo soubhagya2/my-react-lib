@@ -42,12 +42,4 @@ npm start
 
 Open http://localhost:3000 to view it in your browser. The page will reload when you make changes.
 
-## Building for Production
-
-To build the app for production to the `build` folder:
-
-```bash
-npm run build
-```
-
-This correctly bundles React in production mode and optimizes the build for the best performance.
+May this readme file wrong if any issue occure take help of chatgpt :slight_smile:.
