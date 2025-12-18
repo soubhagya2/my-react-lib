@@ -42,4 +42,4 @@ npm start
 
 Open http://localhost:3000 to view it in your browser. The page will reload when you make changes.
 
-May this readme file wrong if any issue occure take help of chatgpt :slight_smile:.
+May this readme file wrong if any issue occure take help of chatgpt :slight_smile:
