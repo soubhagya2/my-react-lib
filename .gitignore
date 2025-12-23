@@ -44,7 +44,6 @@ build/
 src/*
 !src/index.css
 !src/main.jsx
-!src/output.css
 
 # ✅ Allow ONLY redux folder
 !src/redux/
