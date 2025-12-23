@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import "./"
+import "./index.css"
 import { StrictMode } from "react";
 import TodoApp from "./Redux/ReduxTodo.jsx";
 import { Provider } from "react-redux";
