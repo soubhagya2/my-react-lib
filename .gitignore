@@ -26,6 +26,17 @@ build/
 # Ignore everything by default
 /*
 
+# Allow root files
+# -------------------
+!README.md
+!index.html
+!.gitignore
+!package.json
+!package-lock.json
+!vite.config.js
+!tailwind.config.js
+
+
 # Allow src folder
 !src/
 
