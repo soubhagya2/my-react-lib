@@ -5,45 +5,35 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-# 1. Ignore everything in the root
-/*
-
-# 2. Allow specific root files
-!README.md
-!index.html
-!.gitignore
-
-# 3. Handle the src folder
-!src/
-
-# Ignore everything inside src by default
-src/*
-
-# But allow these specific files/folders inside src
-
-!src/main.jsx
-!src/index.css
-
-# 4. Standard safety (always ignore these even if they match above)
+# Dependencies
 node_modules/
-.env
-.DS_Store
+
+# Build output
 dist/
 build/
+
+# Env files
+.env
+*.local
+
+# Editor files
+.vscode/
+.idea/
+.DS_Store
+
+# =========================
+# Ignore everything by default
+/*
+
+# Allow src folder
+!src/
+
+# Ignore everything inside src
+src/*
+
+# ✅ Allow ONLY redux folder
+!src/redux/
+
+# ✅ Allow EVERYTHING inside redux
+!src/redux/**
