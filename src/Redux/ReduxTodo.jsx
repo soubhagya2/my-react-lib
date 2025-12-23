@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTask, deleteTask, editTask, toggleTask, filterTask } from "./slice";
 
@@ -8,25 +8,28 @@ export default function TodoApp() {
   const [editId, setEditId] = useState(null);
   const [editText, setEditText] = useState("");
 
-  const handlesubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-      dispatch(addTask(text));
-      setText("");
-    },
-    [text, dispatch]
-  );
+  const handlesubmit = (e) => {
+  e.preventDefault();
+  if (!text.trim()) return;
+  dispatch(addTask(text.trim()));
+  setText("");
+};
 
-  const { tasks, filter } = useSelector((state) => state.task);
+
+  const tasks = useSelector((state) => state.task.tasks);
+  const filter = useSelector((state) => state.task.filter);
+
   useEffect(() => {
     console.log(tasks);
   }, [tasks]);
 
-  const filteredTasks = tasks.filter((task) => {
+  const filteredTasks = useMemo(() => {
+  return tasks.filter((task) => {
     if (filter === "active") return !task.completed;
     if (filter === "completed") return task.completed;
     return true;
   });
+}, [tasks, filter]);
 
   return (
     <>
