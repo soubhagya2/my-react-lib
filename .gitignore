@@ -31,8 +31,8 @@ build/
 
 # Ignore everything inside src
 src/*
-src/index.css
-src/main.jsx
+!src/index.css
+!src/main.jsx
 
 # ✅ Allow ONLY redux folder
 !src/redux/
