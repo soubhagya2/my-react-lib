@@ -1,9 +1,9 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { StrictMode } from "react";
-import TodoApp from "./Redux/ReduxTodo.jsx";
+import TodoApp from "./ReduxTodo.jsx";
 import { Provider } from "react-redux";
-import { store } from "./Redux/store/store.jsx";
+import { store } from "./store/store.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
