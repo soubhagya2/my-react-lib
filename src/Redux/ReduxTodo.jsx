@@ -1,6 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTask, deleteTask, editTask, toggleTask, filterTask } from "./slicer/slice";
+import {
+  addTask,
+  deleteTask,
+  editTask,
+  toggleTask,
+  filterTask,
+} from "./slicer/slice";
 
 export default function TodoApp() {
   const dispatch = useDispatch();
@@ -9,12 +15,11 @@ export default function TodoApp() {
   const [editText, setEditText] = useState("");
 
   const handlesubmit = (e) => {
-  e.preventDefault();
-  if (!text.trim()) return;
-  dispatch(addTask(text.trim()));
-  setText("");
-};
-
+    e.preventDefault();
+    if (!text.trim()) return;
+    dispatch(addTask(text.trim()));
+    setText("");
+  };
 
   const tasks = useSelector((state) => state.task.tasks);
   const filter = useSelector((state) => state.task.filter);
@@ -24,12 +29,12 @@ export default function TodoApp() {
   }, [tasks]);
 
   const filteredTasks = useMemo(() => {
-  return tasks.filter((task) => {
-    if (filter === "active") return !task.completed;
-    if (filter === "completed") return task.completed;
-    return true;
-  });
-}, [tasks, filter]);
+    return tasks.filter((task) => {
+      if (filter === "active") return !task.completed;
+      if (filter === "completed") return task.completed;
+      return true;
+    });
+  }, [tasks, filter]);
 
   return (
     <>
