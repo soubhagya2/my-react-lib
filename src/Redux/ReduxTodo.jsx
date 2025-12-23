@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTask, deleteTask, editTask, toggleTask, filterTask } from "./slice";
+import { addTask, deleteTask, editTask, toggleTask, filterTask } from "./slicer/slice";
 
 export default function TodoApp() {
   const dispatch = useDispatch();
