@@ -37,7 +37,7 @@ dist-ssr
 src/*
 
 # But allow these specific files/folders inside src
-src/Redux
+
 !src/main.jsx
 !src/index.css
 
